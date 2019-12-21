@@ -5,6 +5,8 @@ import XMonad.Layout.Tabbed
 import XMonad.Layout.Circle
 import XMonad.Layout.Spiral
 import XMonad.Layout.ThreeColumns
+import qualified XMonad.StackSet as W
+import XMonad.Util.EZConfig
 import System.Taffybar.Support.PagerHints (pagerHints)
 
 myStartupHook = do
@@ -33,13 +35,20 @@ myLayout = avoidStruts $
      -- Percent of screen to increment by when resizing panes
      delta   = 2/100
 
+myWorkspaces = fmap show [1..9]
+
+myKeys = [((m .|. mod4Mask, k), windows $ f i) | (i, k) <- zip myWorkspaces [xK_1..xK_9]
+                                               , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]
+         ]
+
 myConfig = defaultConfig
               { modMask = mod4Mask  -- super instead of alt (usually Windows key)
               , terminal = "termite"
               , startupHook = myStartupHook
               , layoutHook = myLayout
               , focusedBorderColor = "#8D69C7"
-              }
+              , workspaces = myWorkspaces
+              } `additionalKeys` myKeys
 
 main = xmonad $
        docks $
