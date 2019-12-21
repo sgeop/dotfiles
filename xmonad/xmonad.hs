@@ -43,7 +43,7 @@ myKeys = [((m .|. mod4Mask, k), windows $ f i) | (i, k) <- zip myWorkspaces [xK_
 
 myConfig = defaultConfig
               { modMask = mod4Mask  -- super instead of alt (usually Windows key)
-              , terminal = "termite"
+              , terminal = "alacritty"
               , startupHook = myStartupHook
               , layoutHook = myLayout
               , focusedBorderColor = "#8D69C7"

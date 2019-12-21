@@ -4,6 +4,7 @@ card sus {
   spark card xmonad
   spark card taffybar
   spark card nvim
+  spark card alacritty
 }
 
 card emacs {
@@ -40,4 +41,10 @@ card nvim {
   outof nvim
 
   init.vim
+}
+
+card alacritty {
+  into ~/.config/alacritty
+
+  alacritty.yml
 }

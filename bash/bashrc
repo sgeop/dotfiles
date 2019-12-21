@@ -1,6 +1,8 @@
-export EDITOR=vim
+if [ -f ~/.bash_aliases ]; then
+. ~/.bash_aliases
+fi
 
-export TERM="xterm-256color"
+export EDITOR=nvim
 
 # GIT_PROMPT_ONLY_IN_REPO=1
 # source ~/.bash-git-prompt/gitprompt.sh

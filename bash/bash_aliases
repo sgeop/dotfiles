@@ -2,4 +2,4 @@ alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 
 alias emacs='emacs -nw'
-
+alias vim=nvim
