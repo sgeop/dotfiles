@@ -3,6 +3,7 @@ card sus {
   spark card bash
   spark card xmonad
   spark card taffybar
+  spark card nvim
 }
 
 card emacs {
@@ -32,4 +33,11 @@ card taffybar {
 
   taffybar.hs
   taffybar.rc
+}
+
+card nvim {
+  into ~/.config/nvim
+  outof nvim
+
+  init.vim
 }
