@@ -79,7 +79,7 @@ set updatetime=300
 set shortmess+=c
 
 " always show signcolumns
-set signcolumn=yes
+" set signcolumn=yes
 highlight SignColumn guibg=gray12
 
 " Some server have issues with backup files, see #649
