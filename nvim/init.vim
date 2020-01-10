@@ -80,11 +80,15 @@ set shortmess+=c
 
 " always show signcolumns
 " set signcolumn=yes
-highlight SignColumn guibg=gray12
+" highlight SignColumn guibg=gray12
 
 " Some server have issues with backup files, see #649
 set nobackup
 set nowritebackup
+
+" encode and decode base64
+vnoremap <leader>64e c<c-r>=system('base64 -w 0', @")<cr><esc>
+vnoremap <leader>64d c<c-r>=system('base64 --decode', @")<cr><esc>
 
 " Better display for messages
 set cmdheight=2
@@ -92,9 +96,19 @@ set cmdheight=2
 " Use <c-space> for trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
 
+" Use <Tab> and <S-Tab> to navigate completion list
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
 " Use <cr> for confirm completion, `<C-g>u` means break undo chain at current position.
 " Coc only does snippet and additional edit on confirm.
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Make <cr> select the first completion item and confirm the completion when no item has been selected
+" inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
+
+" Close the preview window when completion is done
+autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
@@ -137,5 +151,3 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
-
-nnoremap <Leader>2 :call ToggleSignColumn()<CR>

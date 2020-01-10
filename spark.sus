@@ -5,7 +5,6 @@ card sus {
   spark card taffybar
   spark card nvim
   spark card alacritty
-  spark card sbt
 }
 
 card emacs {
@@ -48,12 +47,4 @@ card alacritty {
   into ~/.config/alacritty
 
   alacritty.yml
-}
-
-card sbt {
-  into ~/.sbt/1.0
-  outof sbt
-
-  build.sbt
-  plugins.sbt -> plugins/plugins.sbt
 }
